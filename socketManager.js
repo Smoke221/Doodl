@@ -1,17 +1,16 @@
-const socketIO = require('socket.io');
+const Room = require("./controllers/rooms");
 
-function initializeSocket(server) {
-  const io = socketIO(server);
-
+function initializeSocket(io) {
   io.on('connection', (socket) => {
-    console.log('A user connected');
+    console.log('user connected');
 
-    // Handling when a player joins a room
-    socket.on('joinRoom', (room) => {
-        socket.join(room);
-        socket.broadcast.to(room).emit('playerJoined', `${socket.id} joined the room`);
-    })
-  });
+    socket.on('newRoom', (player) => new Room(io, socket).createPrivateRoom(player))
+
+    socket.on('draw', (dataUrl) => {
+      // Broadcast the drawing data to other clients
+      socket.to(socket.roomID).emit('draw', dataUrl);
+    });
+  })
 }
 
 module.exports = initializeSocket;

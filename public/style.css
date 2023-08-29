@@ -1,3 +1,30 @@
-h1 {
-  color: #f02f2f;
+.paint-canvas {
+  border: 1px black solid;
+  display: block;
+  margin: 1rem;
+}
+
+.color-picker {
+  margin: 1rem 1rem 0 1rem;
+}
+
+/* erase button */
+.erase-button, .undo-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.erase-button img, .undo-button img {
+  width: 40px;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+.erase-button.clicked img, .undo-button.clicked img {
+  transform: scale(1.2); /* Scale up the image slightly */
 }

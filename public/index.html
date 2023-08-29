@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Doodl</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1>Welcome to Doodl</h1>
+    <form id="playerForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <button type="submit">Create New Room</button>
+    </form>
+    <div id="container">
+      <div id="game-players"></div>
+      <div id="game-canvas">
+        <input type="color" class="js-color-picker color-picker" />
+        <input type="range" class="js-line-range" min="1" max="18" value="1" />
+        <label class="js-range-value">1</label>Px
+        <canvas class="js-paint paint-canvas" width="600" height="300"></canvas>
+        <button id="eraseButton" class="erase-button">
+          <img src="../images/delete-2-svgrepo-com.svg" alt="">
+        </button>
+        <button id="undoButton" class="undo-button">
+          <img src="../images/undo-left-round-svgrepo-com.svg" alt="">
+        </button>
+      </div>
+      <div id="guess-box"></div>
+    </div>
   </body>
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
 <script src="script.js"></script>
