@@ -83,6 +83,7 @@ const drawLine = (event) => {
     context.beginPath();
     context.moveTo(x, y);
     context.lineTo(newX, newY);
+    
     context.stroke();
     //[x, y] = [newX, newY];
     x = newX;
