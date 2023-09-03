@@ -101,3 +101,6 @@ paintCanvas.addEventListener("mouseup", () => {
   strokes.push([]);
 });
 paintCanvas.addEventListener("mouseout", stopDrawing);
+
+
+// update the game settings here
